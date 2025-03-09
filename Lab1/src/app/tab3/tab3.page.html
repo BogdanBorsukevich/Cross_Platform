@@ -1,0 +1,42 @@
+<app-my-header name="Лабораторна робота №1"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Завдання №3
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="p_background">Згенерувати матрицю розміром NxN. Знайти суму кожного рядка
+        матриці. Виокремити рядки за допомогою кольору, якщо сума елементів
+        рядка більше за 50.</p>
+
+      <ion-item>
+        <ion-label position="stacked">N:</ion-label>
+        <ion-input type="number" id="a" value="5" #Inputn></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="generateMatrix(Inputn.value)">Згенерувати матрицю</ion-button>
+      
+      <ion-item *ngIf="message">
+        <p>{{ message }}</p>
+      </ion-item>
+
+      <ion-item>
+        <ion-grid>
+          <ion-row *ngFor="let row of matrix">
+            <ion-col *ngFor="let value of row" [ngStyle]="{backgroundColor: getRowColor(row)}">
+              {{ value }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+
+      <ion-item *ngFor="let row of matrix">
+        <p>Сума рядка: {{ getRowSum(row) }}</p>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

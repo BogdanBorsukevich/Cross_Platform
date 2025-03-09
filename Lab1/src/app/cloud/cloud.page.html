@@ -1,0 +1,30 @@
+<app-my-header name="Лабораторна робота №2"></app-my-header>
+
+<ion-content>
+  <ion-toolbar>
+    <ion-title>Перелік факультетів</ion-title>
+  </ion-toolbar>
+  
+  <ion-list *ngFor="let university of groupedFaculties | keyvalue">
+    <ion-item-divider>
+      <ion-label>{{ university.key }}</ion-label>
+    </ion-item-divider>
+    <ion-item *ngFor="let faculty of university.value">
+      <ion-label>
+        <h2>{{ faculty.name }}</h2>
+        <p>Декан: {{ faculty.dean }}</p>
+        <p>Телефон: {{ faculty.phone }}</p>
+        <p>Адреса: {{ faculty.address }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Кількість факультетів в університетах</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <canvas id="facultiesChart"></canvas>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

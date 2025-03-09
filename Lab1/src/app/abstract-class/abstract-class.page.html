@@ -1,0 +1,40 @@
+<app-my-header name="Лабораторна робота №3"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>
+        Завдання
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Знайти пристрій з найменшою ціною.</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-toolbar>
+    <ion-title>Електронні пристрої</ion-title>
+  </ion-toolbar>
+  <ion-list>
+    <ion-item *ngFor="let device of devices">
+      <ion-label>
+        <h2>{{ device.getBrand() }}</h2>
+        <p>Ціна: {{ device.getPrice() }} грн</p>
+        <p>Потужність: {{ device.power }} Вт</p>    
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-title>Пристрій з найменшою ціною:</ion-title>
+  
+  <ion-card color="light" *ngIf="cheapestDevice">
+    <ion-card-header>
+      <ion-card-title>{{ cheapestDevice.getBrand() }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Ціна: {{ cheapestDevice.getPrice() }} грн</p>
+      <p>Потужність: {{ cheapestDevice.power }} Вт</p>
+      <p>Додаткові характеристики: {{ cheapestDevice.displayInfo() }}</p>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<app-my-header name="Лабораторна робота №2"></app-my-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>
+        Завдання №2
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="p_background">
+        На заданому проміжку чисел [a, b] знайдіть суму всіх, які кратні 17 та при діленні на 4 дають в остачі 2.
+        Потрібно вивести як самі числа, так і результати обрахунку.
+      </p>
+
+      <ion-item>
+        <ion-label position="stacked">a:</ion-label>
+        <ion-input type="number" id="a" value="1" #Inputa></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="stacked">b:</ion-label>
+        <ion-input type="number" id="b" value="100" #Inputb></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="calculate(Inputa.value, Inputb.value)">Обчислити</ion-button>
+
+      <ion-item>
+        <p>Результат: {{sum}}</p>
+      </ion-item>
+
+      <ion-item>
+        <p>Числа, які задовольняють умови: {{divisibleNumbers}}</p> 
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,54 @@
+<app-my-header name="Лабораторна робота №1"></app-my-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card color="light">
+    <ion-card-header>
+      <ion-card-title>
+        Завдання №1
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Задано три числа. Знайти кількість тих з них, які кратні 27, якщо сума цифр числа непарна.</p>
+      <ion-item>
+        <ion-input
+          label="Перше число"
+          labelPlacement="stacked" 
+          type="number" 
+          id="a" 
+          value="1" 
+          #Inputa
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Друге число"
+          labelPlacement="stacked" 
+          type="number" 
+          id="b" 
+          value="2" 
+          #Inputb
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input
+          label="Третє число"
+          labelPlacement="stacked" 
+          type="number" 
+          id="c" 
+          value="3" 
+          #Inputc
+        ></ion-input>
+      </ion-item>
+
+      <ion-button 
+        expand="block" 
+        (click)="calculate(Inputa.value, Inputb.value, Inputc.value)">
+        Обчислити
+      </ion-button>
+
+      <ion-item>
+        <p> Результат: {{count}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

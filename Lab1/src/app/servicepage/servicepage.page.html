@@ -1,0 +1,63 @@
+<app-my-header title="Лабораторна робота №5"></app-my-header>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <h1>Завдання</h1>
+      <p>
+        Провести табулювання, обрахувати за допомогою циклу та рекурсії наступну функцію:
+      </p>
+      <img src="assets/icon/Screenshot_10.png" alt="Screenshot">
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input label="Xn" labelPlacement="stacked" type="number" [(ngModel)]="xn"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="Xk" labelPlacement="stacked" type="number" [(ngModel)]="xk"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input label="h" labelPlacement="stacked" type="number" [(ngModel)]="h"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" (click)="ras()">Розрахунок</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-title>Графік обчислень</ion-card-title>
+    <ion-card-content>
+      <div style="height: 400px;">
+        <canvas baseChart
+  [data]="lineChartData"
+  [options]="chartOptions"
+  [type]="'line'">
+</canvas>
+
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-title>
+      <h1>Результати розрахунку</h1>
+    </ion-card-title>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let item of xyInput; index as i">
+          <ion-label>
+            <h5>X = {{ xx[i] }}</h5>
+            <h5>f(X) = {{ item }}</h5>
+          </ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button (click)="input()">Вивести результати</ion-button>
+</ion-content>
